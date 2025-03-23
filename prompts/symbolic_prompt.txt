@@ -1,0 +1,24 @@
+15 23
+Make a priority function that should take into account the nature of this specific differential equation:
+\frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 u}{\partial y^2}, \quad 0 < x < L, \quad y > 0
+
+With boundary conditions:
+u(0, y) = 0, \quad u(L, y) = 0, \quad u(x, 0) = C \sinh\left(\frac{\pi x}{L}\right),
+
+Implement the priority function around the goal of solving the differential equation.
+The operators may look like
+binary operators: ["+", "-", "*", "/"]
+unary operators: ["sin", "cos", "exp"]
+
+Evolve the following function:
+```python
+def priority(operator_list, operator) -> float:
+    """
+    operator_list: list of mathematical operators
+    operator: specific operator from the operator list
+
+    Return a priority value for the given operator
+    """
+
+    return 0.0
+```

@@ -1,0 +1,42 @@
+21 34
+Make a function that returns either a constant, an index to an operator list, or a an index n for a variable x_n.
+The function is meant to be called sequentially to produce a final symbol stack. -1 is return to stop the sequence.
+Build this function so that it solves the following differential equation: y'(x0) = 2*y(x0), y(0) = 1.
+
+For constants, return: (0, c)
+  Where c should always be an int or float
+
+For operators, return: (1, i)
+  Where i should always be a non-negative int less than the length of the op_list
+
+For variables, return: (2, n)
+  Where n should always be a non-negative int
+
+For stop, return: (-1, -1)
+
+After a sequence like: [(2, 0), (2, 1), (1, 2), (0, 2.34), (1, 2), (-1, -1)]
+The stack may look like: [x_0, x_1, *, 2.34, *]
+
+This is the operations in the correct order:
+[+, -, *, /, ^, sin, cos, exp]
+
+An example of a possible function might look like this:
+def priority(symbol_stack):
+    # symbol_stack: the symbol stack in the current iteration. Starts off empty.
+
+    """
+    Make a heuristic that, based on the symbol stack, decides whether to add a constant,
+    an operator, or a variable of certain value.
+
+    For example, if it sees two constants or variables on the stack, it might decide to add an operator like *.
+    Or if it sees one constant or variable, it may add an operator such as sin.
+    """
+    CONSTANT = 0
+    OPERATOR = 1
+    VARIABLE = 2
+
+    return (VARIABLE, 1.2)
+
+which, when called, would constantly tell us to add 1.2 as a constant to the symbol stack.
+
+Change it in a way you think will solve the differential equation better. Only implement the priority() function and nothing else.
