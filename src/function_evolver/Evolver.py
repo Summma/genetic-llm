@@ -6,7 +6,7 @@ from src.function_evolver.IslandPool import IslandPool
 from src.function_evolver.Score import build_stack, build_symbolic_regression
 from src.function_evolver.Result import Result
 
-from utils.models import Ollama
+from utils.models import Ollama, Groq
 from utils.function_extract import extract_python, extract_given_name
 from utils.prompt import Prompt
 
@@ -19,6 +19,7 @@ class Evolver:
         self.island_pool = island_pool
 
         self.llm = Ollama("deepseek-coder-v2:16b")
+        # self.llm = Groq("Qwen-2.5-coder-32b")
         self.prompt = Prompt(prompt_file)
         self.results: Result = Result()
 
